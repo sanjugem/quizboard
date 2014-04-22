@@ -1,0 +1,215 @@
+<!DOCTYPE html> 
+<html>
+	
+	<head>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Allerta' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+	/*@font-face {
+		font-family: 'Share Tech Mono';
+		src: url('http://cssdeck.com/uploads/resources/fonts/digii/DS-DIGII.TTF');
+	}*/
+	body{
+		font-family: 'Allerta', sans-serif;
+	}
+	.container{
+		
+		width:420px;
+		margin-left: auto;
+		margin-right: auto;
+		border:1px #ccc dotted;
+	}
+	
+	.container table{
+		margin-top:0px;
+		width:410px;
+		margin-right: auto;
+		margin-left: auto;
+		
+	}
+	.container table tr td{
+		
+		height:100px;
+		width:50%;
+		
+		font-size: 1.21em;
+		
+	}
+	.container table tr td:nth-child(2){
+		text-align: right;
+		
+	}
+	.container h1{
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+	.container h1 input{	
+		text-align: center;
+		font-size: 0.5em;
+		margin-bottom: 0px;
+		margin-top: 0px;
+		border-bottom:1ps dotted #ccc;
+		font-weight: bold;
+		width:100%;
+
+	}
+	.container table tr td input{
+		font-size: 0.75em;
+		margin-bottom: 0px;
+		margin-top: 2px;
+		border-bottom:1ps dotted #ccc;
+		font-weight: bold;
+		width:100%;
+	}
+
+	.container table tr td:nth-child(2) input{
+		font-size: 0.75em;
+		margin-bottom: 0px;
+		margin-top: 2px;
+		border-bottom:1ps dotted #ccc;
+		font-weight: bold;
+		width:100%;
+		text-align: right;
+		
+	}
+
+
+	a{
+		text-decoration: none;
+		color:#000;
+	}
+	.serialInput{
+		position:absolute;
+		left:0px;
+		top:0px;
+		font-size: 1.5em;
+		background-color: #eee;
+		border:1px solid #cd4532;
+		padding: 10px;
+		
+	}
+	.serialInput p{
+		
+	}
+
+	@media print
+	  {
+	  	input{
+	  		border:none;
+	  	}
+	  	.serialInput{
+	  		display: none;
+	  	}
+	  }
+
+	</style>
+	<script type="text/javascript">
+			var toggle=0;
+			var array=[];
+			var index=0;
+			var foundat=0;
+			$(document).ready(function(){
+
+				$(".leftQ").on("click",leftClicked);
+				$(".rightQ").on("click",rightClicked);
+
+				function leftClicked(event){
+					event.preventDefault();
+					if(toggle==0){
+						
+						console.log("Left: "+$(this).attr('title'));
+						$(this).parent().css("background-color","#f33488");
+						$(this).children().css("background-color","#f33488");
+						
+							array[index]=Array(2);
+							array[index][0]=$(this).attr('title');
+							toggle=1;
+						
+					}
+					
+				}			
+
+				function rightClicked(event){
+					event.preventDefault();
+					if(toggle==1){
+						
+						console.log("Right: "+$(this).attr('title'));
+						$(this).parent().css("background-color","#f85328");
+						$(this).children().css("background-color","#f85328");
+							array[index][1]=$(this).attr('title');
+							index++;
+							toggle=0;
+						
+					}
+					
+
+					//$('.serialInput').text(JSON.stringify(array));
+					$('.serialInput p').text(array.join("-"));
+
+				}
+
+				
+
+			});
+
+			function checkIfExist(arrayt, val){
+					for(i =0;i<arrayt.length;i++){
+							if(arrayt[i][0]==val){
+								return i;
+							}
+						}
+						return false;
+			}
+				
+
+	</script>
+		
+	</head>
+	<body>
+	<div class="container">
+		
+		<h1><span><input type="text" value="____ is the capital of ____  ?" name="titleQ" /></span></h1>
+		<table >
+			<tr><td><a href="#" class="leftQ" title="8">
+				<input type="text" value="Abuja"></a></td>			
+			<td><a href="#" class="rightQ" title="7">
+				<input type="text" value="Portugal"></a></td></tr>
+			<tr><td><a href="#" class="leftQ" title="9">
+			<input type="text" value="Lisbon"></a>
+			</td>		
+				<td><a href="#" class="rightQ" title="6">
+				<input type="text" value="Nepal"></a></td></tr>
+			<tr><td><a href="#" class="leftQ" title="10">
+				<input type="text" value="New Delhi"></a></td>	
+				<td><a href="#" class="rightQ" title="5">
+				<input type="text" value="Australia"></a></td></tr>
+			<tr><td><a href="#" class="leftQ" title="11">
+			<input type="text" value="Kathmandu"></a></td>						
+				<td><a href="#" class="rightQ" title="4">
+				<input type="text" value="Germany"></a></td></tr>
+			<tr><td><a href="#" class="leftQ" title="12">
+			<input type="text" value="Lima"></a></td>			
+				<td><a href="#" class="rightQ" title="3">
+				<input type="text" value="India"></a></td></tr>
+			<tr><td><a href="#" class="leftQ" title="13">
+			<input type="text" value="Muscat"></a></td>			
+				<td><a href="#" class="rightQ" title="2">
+				<input type="text" value="Peru"></a></td></tr>
+			<tr><td><a href="#" class="leftQ" title="14">
+			<input type="text" value="Canberra"></a></td>			
+				<td><a href="#" class="rightQ" title="1">
+				<input type="text" value="Oman"></a></td></tr>
+			<tr><td><a href="#" class="leftQ" title="15">
+			<input type="text" value="Berlin"></a></td>		
+				<td><a href="#" class="rightQ" title="0">
+				<input type="text" value="Nigeria"></a></td></tr>
+			
+		</table>
+
+			
+		</div>
+		<code class="serialInput"><p></p></code>
+
+		
+	</body>
+</html>

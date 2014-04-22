@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">QuizBoard</string>
+    <string name="title_activity_main">QuizBoard</string>
+    <string name="btn_ON">LED ON</string>
+    <string name="btn_OFF">LED OFF</string>
+    <string name="labelCorrect">Correct/False Answers</string>
+
+</resources>
